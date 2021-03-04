@@ -21,3 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/comics', 'HomeController@comics')->name('comics');
+Route::get('/fumetto', 'HomeController@fumetto')->name('fumetto');

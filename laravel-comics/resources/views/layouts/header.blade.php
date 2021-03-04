@@ -39,7 +39,7 @@
 
                     </div>
 
-                    <div class="container d-flex space-between">
+                    <div class="container d-flex space_between">
                         <img src="{{asset('img/DC_logo.png')}}" alt="" class="logo_dc">
                         <div class="routes">
                             <ul class="d-flex space-around m-10">
