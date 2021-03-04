@@ -39,6 +39,10 @@
                     <div><td>SENSATIONAL WONDER WOMAN #9</td></div>
                     <div><link rel="stylesheet" href="#">AVAILBLE NOW</div>
                 </div>
+
+                {{-- @foreach ($comics as $comic)
+                    <h1> {{ $comic->titolo }} </h1>
+                @endforeach --}}
             </div>
         </div>
     </div>

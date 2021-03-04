@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('app');
+    return view('layouts.app');
 });
 
 Auth::routes();
@@ -22,3 +22,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/comics', 'HomeController@comics')->name('comics');
 Route::get('/fumetto', 'HomeController@fumetto')->name('fumetto');
+
+Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('comics', 'ComicController');
+});
