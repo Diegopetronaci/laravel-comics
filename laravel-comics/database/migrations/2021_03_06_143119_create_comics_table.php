@@ -16,16 +16,19 @@ class CreateComicsTable extends Migration
         Schema::create('comics', function (Blueprint $table) {
             $table->id();
             $table->string('titolo');
-            $table->text('descrizione');
+            $table->text('descrizione')->nullable();
             $table->string('slug')->unique();
             $table->string('copertina')->nullable();
             $table->boolean('disponibile')->default(true);
-            $table->char('artista');
-            $table->char('scrittore');
-            $table->string('serie');
+            $table->char('artista')->nullable();
+            $table->char('scrittore')->nullable();
+            $table->string('serie')->nullable();
             $table->float('prezzo');
-            $table->date('rilasciato_il');
-            $table->integer('volume');
+            $table->date('rilasciato_il')->nullable();
+            $table->integer('volume')->nullable();
+            $table->string('formato')->nullable();
+            $table->integer('numero_pagine')->nullable();
+            $table->integer('targhet')->nullable();
             $table->timestamps();
         });
     }

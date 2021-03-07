@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
     <div class="main">
@@ -15,7 +15,7 @@
                     <a href="">SEE ALL</a>
                 </div>
                 <div>
-                    <a href="{{ route('fumetto') }}"><img src=" {{asset('img/batman_106.jpg')}} " alt=""></a>
+                    <a href="#{{-- {{ route('fumetto') }} --}}"><img src=" {{asset('img/batman_106.jpg')}} " alt=""></a>
                     <div><td>Batman #106</td></div>
                     <div><link rel="stylesheet" href="#">AVAILBLE NOW</div>
                 </div>

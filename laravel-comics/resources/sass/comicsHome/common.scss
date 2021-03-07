@@ -1,0 +1,113 @@
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+.center{
+    margin: auto;
+}
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.d_flex{
+    display: flex;
+}
+.d_flex_column{
+    display: flex;
+    flex-direction: column;
+}
+.d_start{
+    justify-content: start;
+}
+.d_end{
+    justify-content: end;
+}
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+/* utility */
+
+.container{
+    width: 80%;
+}
+
+.space_between{
+    justify-content: space-between;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: 900;
+    font-size: 10px;
+}
+
+a:hover{
+    color: blue;
+}
+
+.no_shadow{
+    border: none;
+    text-align: right;
+}
+
+.altezza{
+    margin: 20px 0;
+}
+
+.altezza:hover{
+    border-bottom: 1px solid blue;
+}
+
+.bg_black{
+    background-color: #1c1c1c;
+    color: white;
+    padding: 10px;
+    position: relative;
+}
+.p_20{
+    padding: 20px;
+}
+.fascia_blue{
+    height: 100px;
+    background-color: #0282f9;
+}
+/* fine utility */

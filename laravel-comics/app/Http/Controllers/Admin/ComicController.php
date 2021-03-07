@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Comic;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ComicController extends Controller
 {
@@ -16,6 +18,8 @@ class ComicController extends Controller
     public function index()
     {
         //
+        $fumetti = Comic::all();
+        return view('admin.comics.index', compact('fumetti'));
     }
 
     /**
@@ -26,6 +30,7 @@ class ComicController extends Controller
     public function create()
     {
         //
+        return view('admin.comics.create');
     }
 
     /**
@@ -37,6 +42,53 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         //
+        /* $comic = new Comic;
+        $comic->title = request('titolo');
+        $comic->body = request('descrizione');
+        $comic->body = request('disponibile');
+        $comic->body = request('artista');
+        $comic->body = request('scrittore');
+        $comic->body = request('serie');
+        $comic->body = request('prezzo');
+        $comic->body = request('Rilasciato_il');
+        $comic->body = request('volume');
+        $comic->body = request('rilasciato_il');
+        $comic->save(); */
+
+        /* dd($request); */
+        $request['slug'] = Str::slug($request->titolo);
+        $data = $request->validate([
+            'titolo' => 'required',
+            'descrizione' => 'nullable',
+            'slug' => 'required',
+            'copertina' => 'mimes:jpg,png,jpeg | nullable | max:1000',
+            'disponibile' => 'nullable',
+            'artista' => 'nullable',
+            'scrittore' => 'nullable',
+            'serie' => 'nullable',
+            'prezzo' => 'required',
+            'rilasciato_il' => 'nullable',
+            'volume' => 'nullable',
+            'formato' => 'nullable',
+            'numero_pagine' => 'nullable',
+            'targhet' => 'nullable',
+        ]);
+
+        if ($request->copertina) {
+            $copertina = Storage::disk('public')->put('comics_img', $request->copertina);
+            $data['copertina'] = $copertina;
+        };
+        /* dd($request); */
+
+        /* Comic::create($data);
+        $comic = Comic::All(); */
+
+        /* return back(); */
+        /* return redirect()->route('admin.comics.index', $comic); */
+
+        Comic::create($data);
+        $fumetto = Comic::orderby('id', 'desc')->first();
+        return view('admin.comics.show', compact('fumetto'));
     }
 
     /**
@@ -48,6 +100,8 @@ class ComicController extends Controller
     public function show(Comic $comic)
     {
         //
+        $fumetto = $comic;
+        return view('admin.comics.show', compact('fumetto'));
     }
 
     /**
@@ -82,5 +136,7 @@ class ComicController extends Controller
     public function destroy(Comic $comic)
     {
         //
+        $comic->delete();
+        return redirect()->route('admin.comics.index');
     }
 }
