@@ -17,6 +17,7 @@ class ComicController extends Controller
         //
         $fumetti = Comic::all();
         return view('fumetti.index', compact('fumetti'));
+        
     }
 
     /**
