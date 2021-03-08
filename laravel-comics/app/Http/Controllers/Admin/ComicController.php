@@ -113,6 +113,7 @@ class ComicController extends Controller
     public function edit(Comic $comic)
     {
         //
+        return view('admin.comics.edit', compact('comic'));
     }
 
     /**
@@ -125,6 +126,31 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
         //
+        $data = $request->validate([
+            'titolo' => 'nullable',
+            'descrizione' => 'nullable',
+            
+            'copertina' => 'mimes:jpg,png,jpeg | nullable | max:1000',
+            'disponibile' => 'nullable',
+            'artista' => 'nullable',
+            'scrittore' => 'nullable',
+            'serie' => 'nullable',
+            'prezzo' => 'nullable',
+            'rilasciato_il' => 'nullable',
+            'volume' => 'nullable',
+            'formato' => 'nullable',
+            'numero_pagine' => 'nullable',
+            'targhet' => 'nullable'
+        ]);
+
+        if ($request->copertina) {
+            Storage::delete($comic->copertina);
+            $copertina = Storage::disk('public')->put('comics_img', $request->copertina);
+            $data['copertina'] = $copertina;
+        };
+        
+        $comic->update($data);
+        return redirect()->route('admin.comics.show', $comic);
     }
 
     /**

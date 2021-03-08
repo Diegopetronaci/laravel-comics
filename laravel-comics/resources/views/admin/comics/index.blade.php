@@ -48,7 +48,7 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="triggerId">
                             <a class="dropdown-item" href="{{ route('admin.comics.show', $fumetto) }}">Mostra</a>
-                            <a class="dropdown-item" href="{{-- {{ route('admin.comics.edit', $fumetto) }} --}}">Modifica</a>
+                            <a class="dropdown-item" href="{{ route('admin.comics.edit', $fumetto) }}">Modifica</a>
                         </div>
                     </div>
                 </td>
