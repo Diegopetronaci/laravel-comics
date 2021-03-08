@@ -15,8 +15,10 @@ class ComicController extends Controller
     public function index()
     {
         //
-        $fumetti = Comic::all();
-        return view('fumetti.index', compact('fumetti'));
+        /* $fumetti = Comic::all(); */
+        $fumetti = Comic::take(5)->get();
+        /* $jumbotron = Comic::take(3)->get(); */
+        return view('fumetti.index', compact('fumetti'/* , 'jumbotron' */));
         
     }
 
@@ -50,6 +52,7 @@ class ComicController extends Controller
     public function show(Comic $comic)
     {
         //
+        /* return view('fumetti.show', compact('comic')); */
     }
 
     /**

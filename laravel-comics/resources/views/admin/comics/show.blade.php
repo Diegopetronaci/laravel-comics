@@ -3,12 +3,12 @@
 @section('content')
 
     <div class="show_img">
-        <img id="immagine_sfondo_show" src="{{ $fumetto->copertina }}" alt="">
+        <img id="immagine_sfondo_show" src="{{asset('storage/' . $fumetto->copertina)}}" alt="">
     </div>
 
     <div class="fascia_blue">
         <div>
-            <img src="{{ $fumetto->copertina }}" alt="Fumetto Caricato">
+            <img src="{{asset('storage/' . $fumetto->copertina)}}" alt="Fumetto Caricato">
             <p>COMIC BOOK</p>
         </div>
     </div>

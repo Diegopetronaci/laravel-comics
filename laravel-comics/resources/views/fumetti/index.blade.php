@@ -22,8 +22,8 @@
                 <div>
                     <a href="{{ route('comic', $fumetto) }}">
                         <p>COMIC BOOK</p>
-                        {{-- <img src="{{asset('storage/'.$fumetto->copertina)}}" alt=""> --}}
-                        <img src=" {{$fumetto->copertina}} " alt="">
+                        <img src="{{asset('storage/' . $fumetto->copertina)}}" alt="">
+                        {{-- <img src=" {{$fumetto->copertina}} " alt=""> --}}
                     </a>
                     <div><td>{{ $fumetto->titolo }} </td></div>
                     {{-- <div>AVAILBLE NOW</div> --}}

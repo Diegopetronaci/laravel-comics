@@ -17,6 +17,8 @@ Route::get('/', 'PageController@home')->name('homepage');
 Route::get('comics', 'PageController@comics')->name('comics');
 
 Route::get('comic/{fumetto}', 'PageController@show')->name('comic');
+/* Route::get('comic/{comic}', 'ComicController@show')->name('comic'); */
+
 
 Route::resource('fumetti', 'ComicController');
 
